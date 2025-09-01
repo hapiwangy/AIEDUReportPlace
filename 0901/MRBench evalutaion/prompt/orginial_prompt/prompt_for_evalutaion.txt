@@ -1,0 +1,76 @@
+ ### System:
+ You are a critic evaluating a tutor’s interaction with a student, responsible for providing a clear and objective single evaluation
+ score based on specific criteria. Each assessment must accurately reflect the absolute performance standards.
+ ### User: 
+ # Task Description: The assessment of the ###Tutor Response should be based on the following: ###Previous Conversation
+ between Tutor and Student, ###Definitions of criteria and
+ # Scoring Rubric.
+ (1). Write a one-sentence feedback that assesses the quality of the response and Rate the # Tutor Response strictly based on
+ the given scoring rubric and criteria, not evaluating in general. 
+(2). After writing feedback, write a score that is an integer between 1 and 3. You should refer to the scoring rubric.
+ (3). The output format should look as follows: "Feedback: (write a feedback for criteria) [RESULT] (an integer number between 1
+ and 3)"
+ (4). Please do not generate other opening, closing, or explanations.
+ # Previous Conversation between Tutor and Student: {history}
+ # Definitions of criteria: {definition}
+ # Scoring Rubric: {rubric}
+ # Tutor Response: {response}
+ ### Assistant:
+ # Generate Assessment Score: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+definition = {"mistake_identification": "Has the tutor identified a mistake in a student’s response?", 
+"mistake_location": "Does the tutor’s response accurately point to a genuine mistake and its location?", 
+"revealing_answer": "Does the tutor reveal the final answer (whether correct or not)?", 
+"providing_guidance": "Does the tutor offer correct and relevant guidance, such as an explanation, elaboration, hint,
+ examples, and so on?",
+ "coherent": "Is the tutor’s response logically consistent with the student’s previous response?",
+ "actionability": "Is it clear from the tutor’s feedback what the student should do next?",
+ "tutor_tone": "Is the tutor’s response encouraging, neutral, or offensive?",
+ "humanness": "Does the tutor’s response sound natural, rather than robotic or artificial?"}
+ mistake_identification_rubric = """
+ [Has the tutor identified a mistake in a student’s response?]
+ Score 1: Yes
+ Score 2: To some extent
+ Score 3: No
+ """.strip()
+ mistake_location_rubric = """
+ [Does the tutor’s response accurately point to a genuine mistake and its location?]
+ Score 1: Yes
+ Score 2: To some extent
+ Score 3: No
+ """.strip()
+ revealing_answer_rubric = """
+ [Does the tutor reveal the final answer (whether correct or not)]
+ Score 1: Yes (and the revealed answer is correct
+ Score 2: Yes (but the revealed answer is incorrect)
+ Score 3: No
+ """.strip()
+ providing_guidance_rubric = """
+ [Does the tutor offer correct and relevant guidance, such as an explanation, elaboration, hint, examples, and so on?]
+ Score 1: Yes (guidance is correct and relevant to the mistake)
+ Score 2: To some extent (guidance is provided but it is fully or partially incorrect or incomplete)
+ Score 3: No
+ """.strip()
+ coherent_rubric = """
+ [Is the tutor’s response logically consistent with the student’s previous response?]
+ Score 1: Yes
+ Score 2: To some extent
+ Score 3: No
+ """.strip()
+ actionability_rubric = """
+ [Is it clear from the tutor’s feedback what the student should do next?]
+ Score 1: Yes
+ Score 2: To some extent
+ Score 3: No
+ """.strip()
+ tutor_tone_rubric = """
+ [Is the tutor’s response encouraging, neutral, or offensive?]
+ Score 1: Encouraging
+ Score 2: Neutral
+ Score 3: Offensive
+ """.strip()
+ humanness_rubric = """
+ [Does the tutor’s response sound natural rather than robotic or artificial?]
+ Score 1: Yes
+ Score 2: To some extent
+ Score 3: No
+ """.strip()
