@@ -1,0 +1,5 @@
+result0903.json :
+store the data with MRBench with answer. (without the evaluation part)
+some of the result do not have the points
+llama_error=[3, 24, 33, 35, 37, 50, 56, 67, 76, 89, 91, 92, 98, 100, 122, 124, 136, 141, 164, 180]
+mistral_error=[3, 24, 33, 35, 37, 50, 56, 67, 76, 89, 91, 92, 98, 100, 122, 124, 136, 141, 164, 180]
